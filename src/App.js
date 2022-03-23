@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import Home from './views/Home/Home';
 import BookList from './views/Books/BookList';
 import BookDetail from './views/Books/BookDetail';
@@ -18,7 +18,8 @@ function App() {
           <Route exact path="/books">
             <BookList />
           </Route>
-          <Route exact path="/:id">
+          <Route exact path="/books/:id">
+            <Link to="/books">Back to Books</Link>
             <BookDetail />
           </Route>
         </Switch>
