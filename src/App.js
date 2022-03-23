@@ -1,4 +1,7 @@
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './views/Home/Home';
 import BookList from './views/Books/BookList';
+import BookDetail from './views/Books/BookDetail';
 import './App.css';
 
 function App() {
@@ -6,7 +9,20 @@ function App() {
   return (
     <main className="container">
       <h1>Library Catalog</h1>
-      <BookList />
+
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/books">
+            <BookList />
+          </Route>
+          <Route exact path="/:id">
+            <BookDetail />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </main>
   );
 }
